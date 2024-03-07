@@ -2,6 +2,15 @@ require('dotenv').config();
 const axios = require('axios');
 const Discord = require('dc-api')
 
+const PackageDependents = require("dependents-zatys");
+ 
+// Get is-there's dependents
+PackageDependents("is-there").then(packages => {
+    packages.forEach(c => {
+        console.log(c.name + (c.author && c.author.name ? " by " + c.author.name : ""));
+    })
+})
+
 /*
     Simple Discord Self Bot
     Created by viloid ( github.com/vsec7 )
